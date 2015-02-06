@@ -1,0 +1,222 @@
+﻿@using System.Data.Sql;
+@using System.Data.SqlClient;
+
+@{
+
+
+    Validation.RequireField("username", "Username is required.");
+    Validation.RequireField("password", "Password is required.");
+    
+    var Username = Request.Form["username"];
+    var Password = Request.Form["password"];
+
+    SqlConnection conn = new SqlConnection("Server=KOALA;Database=Koalaborate;Trusted_Connection=True;");
+
+    
+    SqlDataReader rdr = null;
+    if (IsPost && Validation.IsValid()) { 
+    try
+    {
+        // 2. Open the connection
+        conn.Open();
+
+        // 3. Pass the connection to a command object
+        SqlCommand cmd = new SqlCommand("Select * from Userinfo where Username=@username and Password=@password", conn);
+        cmd.Parameters.AddWithValue("username", Username);
+        cmd.Parameters.AddWithValue("password", Password);
+        //
+        // 4. Use the connection
+        //
+
+        // get query results
+        rdr = cmd.ExecuteReader();
+
+        // print the CustomerID of each record
+        while (rdr.Read())
+        {
+            Session["fname"] = rdr["FirstName"];
+            Session["lname"] = rdr["LastName"];
+            
+            Response.Redirect("~/dashboard_default");
+        }
+    }
+    finally
+    {
+        // close the reader
+        if (rdr != null)
+        {
+            rdr.Close();
+        }
+
+        // 5. Close the connection
+        if (conn != null)
+        {
+            conn.Close();
+        }
+    }
+}
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Koalaborate</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper" style="padding-left:0; ">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:70px;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.cshtml">
+                    <img src="Images/Koalalogo1.png" style="position:absolute;height:50px;margin-top:-5px;" />
+                </a>
+
+
+            </div>
+
+
+
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br />
+                        <br />
+                        <br />
+
+                        <div class="container">
+
+                            <div class="container">
+
+                                <div class="row" style="margin-top:20px">
+                                    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                                        <form role="form" method="post">
+                                            <fieldset>
+                                                <h2>Please Sign In</h2>
+                                                <hr class="colorgraph">
+                                                <div class="form-group">
+                                                    <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username">
+                                                    @Html.ValidationMessage("username", new { @style = "font-weight:bold;color:red;!important" })
+                                                 </div>
+                                                <div class="form-group">
+                                                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                                                    @Html.ValidationMessage("password", new { @style = "font-weight:bold;color:red;!important" })
+                                                </div>
+                                                <span class="button-checkbox">
+                                                    <button type="button" class="btn" data-color="info">Remember Me</button>
+                                                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+                                                    <a href="" class="btn btn-link pull-right">Forgot Password?</a>
+                                                </span>
+                                                <hr class="colorgraph">
+                                                <div class="row">
+                                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                                        <a href="signup.cshtml" class="btn btn-lg btn-primary btn-block">Register</a>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+                        </div>
+                        <br />
+                        <br /><br />
+
+                    </div>
+                </div>
+
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
