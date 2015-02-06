@@ -12,13 +12,13 @@
     <title>Koalaborate</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="Content/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="Content/plugins/morris.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -154,13 +154,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.cshtml"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="dashboard_default.cshtml"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.cshtml"><i class="fa fa-fw fa-bar-chart-o"></i> Add New Project</a>
+                        <a href="new_projects.cshtml" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-bar-chart-o"></i> Add New Project</a>
                     </li>
                     <li>
-                        <a href="tables.cshtml"><i class="fa fa-fw fa-table"></i> Projects</a>
+                        <a href="new_tasks.cshtml" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-table"></i> Add New Tasks</a>
                     </li>
                     <li>
                         <a href="forms.cshtml"><i class="fa fa-fw fa-edit"></i> Tasks</a>
@@ -413,7 +413,15 @@
 
             </div>
             <!-- /.container-fluid -->
+        <div class="bs-example">
 
+
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog" style="width:900px;">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+        </div>
         </div>
         <!-- /#page-wrapper -->
 

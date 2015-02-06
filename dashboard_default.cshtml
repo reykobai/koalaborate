@@ -1,7 +1,4 @@
-﻿
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,13 +12,13 @@
     <title>Koalaborate</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="Content/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="Content/plugins/morris.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -49,8 +46,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard_default.cshtml">
-                    <img src="Images/Koalalogo1.png" style="position:absolute;height:50px;margin-top:-10px;"/></a>
+                <a class="navbar-brand" href="index.cshtml">
+                    <img src="Images/Koalalogo1.png" style="position:absolute;height:50px;margin-top:-10px;" />
+                </a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -64,7 +62,8 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -79,7 +78,8 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -94,7 +94,8 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading">
+                                            <strong>John Smith</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -160,16 +161,16 @@
                         <a href="dashboard_default.cshtml"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="charts.cshtml"><i class="fa fa-fw fa-bar-chart-o"></i> Add New Project</a>
+                        <a href="new_projects.cshtml" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-bar-chart-o"></i> Add New Project</a>
                     </li>
                     <li>
-                        <a href="tables.cshtml"><i class="fa fa-fw fa-table"></i> Projects</a>
+                        <a href="new_tasks.cshtml" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-table"></i> Add New Tasks</a>
                     </li>
                     <li>
                         <a href="forms.cshtml"><i class="fa fa-fw fa-edit"></i> Tasks</a>
                     </li>
                     <li>
-                        <a href="calendar.cshtml"><i class="fa fa-fw fa-desktop"></i> Calendar</a>
+                        <a href="bootstrap-elements.cshtml"><i class="fa fa-fw fa-desktop"></i> Calendar</a>
                     </li>
                     <li>
                         <a href="bootstrap-grid.cshtml"><i class="fa fa-fw fa-wrench"></i> Discussion/Forum</a>
@@ -199,15 +200,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Dashboard 
+                            Dashboard
                         </h1>
-                        
+
                         <ol class="breadcrumb">
-         
+
 
                             <li class="active">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-folder"></i> Projects</button>
+                                    <a href="dashboard_default.cshtml" class="btn btn-default" role="button"><i class="fa fa-folder"></i> Projects</a>
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <span class="caret"></span>
                                         <span class="sr-only">Toggle Dropdown</span>
@@ -216,7 +217,7 @@
                                         <li><a href="#">New Requests</a></li>
                                         <li><a href="#">Current</a></li>
                                         <li><a href="#">Delayed</a></li>
-                            
+
                                     </ul>
                                 </div>
                             </li>
@@ -224,198 +225,199 @@
                             <li class="active">
                                 <div class="btn-group">
                                     <a href="dashboard_task.cshtml" class="btn btn-default" role="button"><i class="fa fa-tasks"></i> Tasks</a>
-                                       
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="caret"></span>
-                                            <span class="sr-only">Toggle Dropdown</span>
-                                        </button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">New Requests</a></li>
+                                        <li><a href="#">Current</a></li>
+                                        <li><a href="#">Delayed</a></li>
 
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">New Requests</a></li>
-                                            <li><a href="#">Current</a></li>
-                                            <li><a href="#">Delayed</a></li>
-
-                                        </ul>
-</div>
+                                    </ul>
+                                </div>
                             </li>
 
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
-
-               
-
-                
                 <!-- /.row -->
 
                 <div class="row">
-                   
-                  
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-folder fa-fw"></i> Projects</h3>
-                            </div>
-                            <ul>
-                                <li> <h5><strong>New Request</strong></h5></li>
-                                </ul>
-                                <div class="panel-body">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Project Name</th>
-                                                    <th>Project Manager</th>
-                                                    <th>Associates</th>
-                                                    <th>Date Started</th>
-                                                    <th>Duedate</th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>id</td>
-                                                    <td>p Name</td>
-                                                    <td>p mngr</td>
-                                                    <td>assoc</td>
-                                                    <td>d Start</td>
-                                                    <td>due date</td>
-                                                    <td>status</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>id</td>
-                                                    <td>p Name</td>
-                                                    <td>p mngr</td>
-                                                    <td>assoc</td>
-                                                    <td>d Start</td>
-                                                    <td>due date</td>
-                                                    <td>status</td>
-                                                </tr>
-                                                
-                                            </tbody>
-                                        </table>
 
-                                    </div>
-                                    <div class="text-right">
-                                        <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                    </div>
-                                  
-                                </div>
-                            
-                            <ul>
-                                <li> <h5><strong>Delayed</strong></h5></li>
-                            </ul>
-                            <div class="panel-body">
-
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Project Name</th>
-                                                <th>Project Manager</th>
-                                                <th>Associates</th>
-                                                <th>Date Started</th>
-                                                <th>Duedate</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>id</td>
-                                                <td>p Name</td>
-                                                <td>p mngr</td>
-                                                <td>assoc</td>
-                                                <td>d Start</td>
-                                                <td>due date</td>
-                                                <td>status</td>
-                                            </tr>
-                                            <tr>
-                                                <td>id</td>
-                                                <td>p Name</td>
-                                                <td>p mngr</td>
-                                                <td>assoc</td>
-                                                <td>d Start</td>
-                                                <td>due date</td>
-                                                <td>status</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-
-                            </div>
-
-                            <ul>
-                                <li> <h5><strong>Current</strong></h5></li>
-                            </ul>
-                            <div class="panel-body">
-
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Project Name</th>
-                                                <th>Project Manager</th>
-                                                <th>Associates</th>
-                                                <th>Date Started</th>
-                                                <th>Duedate</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>id</td>
-                                                <td>p Name</td>
-                                                <td>p mngr</td>
-                                                <td>assoc</td>
-                                                <td>d Start</td>
-                                                <td>due date</td>
-                                                <td>status</td>
-                                            </tr>
-                                            <tr>
-                                                <td>id</td>
-                                                <td>p Name</td>
-                                                <td>p mngr</td>
-                                                <td>assoc</td>
-                                                <td>d Start</td>
-                                                <td>due date</td>
-                                                <td>status</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-
-                            </div>
-                            
+                </div>
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-folder fa-fw"></i> Projects</h3>
                         </div>
+                        <ul>
+                            <li> <h5><strong>New Request</strong></h5></li>
+                        </ul>
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Project Name</th>
+                                            <th>Project Manager</th>
+                                            <th>Associates</th>
+                                            <th>Date Started</th>
+                                            <th>Duedate</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-right">
+                                <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+
+                        </div>
+
+                        <ul>
+                            <li> <h5><strong>Delayed</strong></h5></li>
+                        </ul>
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Project Name</th>
+                                            <th>Project Manager</th>
+                                            <th>Associates</th>
+                                            <th>Date Started</th>
+                                            <th>Duedate</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-right">
+                                <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+
+                        </div>
+
+                        <ul>
+                            <li> <h5><strong>Current</strong></h5></li>
+                        </ul>
+                        <div class="panel-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Project Name</th>
+                                            <th>Project Manager</th>
+                                            <th>Associates</th>
+                                            <th>Date Started</th>
+                                            <th>Duedate</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>id</td>
+                                            <td>p Name</td>
+                                            <td>p mngr</td>
+                                            <td>assoc</td>
+                                            <td>d Start</td>
+                                            <td>due date</td>
+                                            <td>status</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="text-right">
+                                <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-                <!-- /.row -->
-
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
+            </div>
+            <!-- /.row -->
 
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
+        <div class="bs-example">
 
 
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog" style="width:900px;">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-wrapper -->
     <!-- /#wrapper -->
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

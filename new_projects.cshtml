@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Koalaborate</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ 
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+    <div id="signupbox" style=" margin-top:50px; float:left;" class="mainbox col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-1">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Add New Project</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+            </div>
+            <div class="panel-body">
+                <form id="signupform" class="form-horizontal" role="form">
+
+                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                        <p>Error:</p>
+                        <span></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="taskname" class="col-md-3 control-label">Project Name</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="projectname" placeholder="Project Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="associates" class="col-md-3 control-label">Associates</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="associates" placeholder="Associates">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-md-3 control-label">Description</label>
+                        <div class="col-md-9">
+                    <textarea class="form-control" name="description" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duedate" class="col-md-3 control-label">Due Date</label>
+                        <div class="col-md-9">
+                            <input type="text" id="datepicker" class="form-control" name="duedate" placeholder="Due Date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Status" class="col-md-3 control-label">Status</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="status" placeholder="Status">
+                        </div>
+                    </div>
+
+                  
+                    <div class="form-group">
+                        <label for="Upload File" class="col-md-3 control-label">Upload File</label>
+                        <div class="col-md-9">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <span class="btn btn-primary btn-file">
+                                    <span class="fileupload-new">Select file</span>
+                                    <span class="fileupload-exists">Change</span>         <input type="file" />
+                                </span>
+                                <span class="fileupload-preview"></span>
+                                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    
+
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <div style="float:right; position: relative;">
+                                <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Save</button>
+                                <span style="margin-left:8px;"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+              
+
+
+
+                </form>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- /.row -->
+    <!-- /.container-fluid -->
+    <!-- /#page-wrapper -->
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
